@@ -1,0 +1,14 @@
+note over browser:
+	browser create new note {content: "Wow", date: "2021-01-08T16:16:17.819Z"}
+	add to the note list on the page
+	and redraw the note list on the page 
+end note
+note over browser:
+	sends the new note to the server as JSON {content: "Wow", date: "2021-01-08T16:16:17.819Z"}
+end note
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+note over server:
+	The server add new note to note list at server and send JSON back
+	{message: "note created"}
+end note
+server-->browser: JSON
